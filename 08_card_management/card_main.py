@@ -1,6 +1,7 @@
+import card_tools
 while True:
     # show the menu
-
+    card_tools.show_menu()
     action_str = input("please enter your operation:")
 
     # 1,2,3 is the operation for card
@@ -8,13 +9,13 @@ while True:
 
         # create a new card
         if action_str == "1":
-            pass
+            card_tools.add_new_card()
         # show all
         if action_str == "2":
-            pass
+            card_tools.show_all_cards()
         # query card
         if action_str == "3":
-            pass
+            card_tools.search_card()
 
         print("your operation is %s" % action_str)
         pass
