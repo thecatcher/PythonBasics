@@ -16,7 +16,6 @@ while True:
         # query card
         if action_str == "3":
             card_tools.search_card()
-
         print("your operation is %s" % action_str)
         pass
 

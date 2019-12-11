@@ -46,17 +46,46 @@ def show_all_cards():
     print("=" * 50)
 
     # check  whether card exists
-    if len(card_list)==0:
+    if len(card_list) == 0:
         print("no record!")
         return
 
     # print("show all cards")
     for card_dict in card_list:
-        print("%s\t\t%s\t\t%s\t\t%s" %(card_dict["name"],
+        print("%s\t\t%s\t\t%s\t\t%s" % (card_dict["name"],
+                                        card_dict["phone"],
+                                        card_dict["qq"],
+                                        card_dict["email"]))
+
+
+def search_card():
+    """search card"""
+    print("search a card")
+    # 1.remind user to input username
+    name_str = input("please enter the username you want to search:")
+    # 2.search list if not found remind user
+    for card_dict in card_list:
+        if card_dict["name"] == name_str:
+            for name in ["name", "tel", "qq", "email"]:
+                print(name, end="\t\t")
+            print()
+            print("=" * 50)
+            print("%s\t\t%s\t\t%s\t\t%s" % (card_dict["name"],
                                             card_dict["phone"],
                                             card_dict["qq"],
                                             card_dict["email"]))
+            deal_card(card_dict)
+            break
+    else:
+        print("the user %s is not found" % name_str)
 
-    def search_card():
-        """search card"""
-        print("search a card")
+
+def deal_card(find_dict):
+
+    action_str = input("please input your operation: [1]modify [2]delete [0]return")
+
+    if (action_str == "1"):
+        pass
+    elif (action_str == "2"):
+        card_list.remove(find_dict)
+        print("%s is deleted!" % find_dict["name"])
