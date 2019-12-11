@@ -81,11 +81,28 @@ def search_card():
 
 
 def deal_card(find_dict):
-
     action_str = input("please input your operation: [1]modify [2]delete [0]return")
 
-    if (action_str == "1"):
-        pass
-    elif (action_str == "2"):
+    if action_str == "1":
+        find_dict["name"] = input_card_info(find_dict["name"], "name:")
+        find_dict["phone"] = input_card_info(find_dict["phone"], "phone:")
+        find_dict["qq"] = input_card_info(find_dict["qq"], "qq:")
+        find_dict["email"] = input_card_info(find_dict["email"], "email:")
+    elif action_str == "2":
         card_list.remove(find_dict)
         print("%s is deleted!" % find_dict["name"])
+
+
+def input_card_info(dict_value, tip_message):
+    """
+
+    :param dict_value:
+    :param tip_message:
+    :return:
+    """
+    result_str = input(tip_message)
+
+    if len(result_str) > 0:
+        return result_str
+    else:
+        return dict_value
